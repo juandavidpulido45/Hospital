@@ -91,5 +91,17 @@ public class Hospital {
         System.out.println(hospitalUno.getCantidadDeEnfermeros());
         System.out.println(hospitalUno.getCapacidadParaAltoRiesgo());
     }
-    
+
+    public boolean getCantidadDeMedicamentosExistentes() {
+        throw new UnsupportedOperationException();
+    }
+
+    public boolean getHospitalEnServicio() {
+        throw new UnsupportedOperationException();
+    }
+
+    public void almacenarMedicamentos() {
+        throw new UnsupportedOperationException();
+    }
+
 }
