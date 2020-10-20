@@ -2,7 +2,6 @@ package hospital;
 
 import java.util.Date;
 
-
 public class Hospital {
 
     private String nombre;
@@ -11,12 +10,31 @@ public class Hospital {
     private String especialidad;
     private Boolean capacidadParaAltoRiesgo;
 
+    /**
+     * Atributos de Composición
+     */
+    private Empleado importante;
+    private DispositivoMedico dispositivoIndispensable;
+    
     public Hospital(String nombre, int cantidadDeEnfermeros, Date fechaDeCreacion, String especialidad, Boolean capacidadParaAltoRiesgo) {
         this.nombre = nombre;
         this.cantidadDeEnfermeros = cantidadDeEnfermeros;
         this.fechaDeCreacion = fechaDeCreacion;
         this.especialidad = especialidad;
         this.capacidadParaAltoRiesgo = capacidadParaAltoRiesgo;
+        this.dispositivoIndispensable = new DispositivoMedico(10000,"Philips");
+    }
+    
+    public DispositivoMedico getDispositivoIndispensable(){
+        return this.dispositivoIndispensable;
+    }
+    
+    public Empleado getImportante(){
+        return this.importante;
+    }
+    
+    public void setImportante(Empleado e){
+        this.importante = e;
     }
     
     /**
@@ -81,15 +99,25 @@ public class Hospital {
         Hospital hospitalUno = new Hospital("Super Salud",85,new Date(),"Atencion al publico de todo tipo",false);
         Hospital hospitalDos = new Hospital("Maxi Salud",35,new Date(),"Urgencias y Citas prioritarias",true);
         
-        System.out.println(hospitalUno.getNombre());
-        System.out.println(hospitalUno.getCantidadDeEnfermeros());
-        System.out.println(hospitalUno.getCapacidadParaAltoRiesgo());
+        EmpleadoDelMes carlos = new EmpleadoDelMes("Carlos", "Giraldo", 18, "Realiza Radiografias", "En el hospital", false);
         
-        hospitalUno.agregarEmpleados();
+        hospitalUno.setImportante(carlos);
         
-        System.out.println(hospitalUno.getNombre());
-        System.out.println(hospitalUno.getCantidadDeEnfermeros());
-        System.out.println(hospitalUno.getCapacidadParaAltoRiesgo());
+        System.out.println("Nombre del empleado importante");
+        System.out.println(hospitalUno.getImportante().getNombre());
+        
+        System.out.println(hospitalUno.getDispositivoIndispensable().getReferencia());
+        
+        //System.out.println(hospitalUno.getNombre());
+        //System.out.println(hospitalUno.getCantidadDeEnfermeros());
+        //System.out.println(hospitalUno.getCapacidadParaAltoRiesgo());
+        
+        //hospitalUno.agregarEmpleados();
+        
+        //System.out.println(hospitalUno.getNombre());
+        //System.out.println(hospitalUno.getCantidadDeEnfermeros());
+        //System.out.println(hospitalUno.getCapacidadParaAltoRiesgo());
+        
     }
 
     public boolean getCantidadDeMedicamentosExistentes() {

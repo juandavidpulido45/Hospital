@@ -2,7 +2,6 @@ package hospital;
 
 import java.util.Date;
 
-
 public class HospitalDialisis extends Hospital{
     
     private String nombre;
