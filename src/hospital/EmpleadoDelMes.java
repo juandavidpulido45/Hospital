@@ -7,7 +7,7 @@ public class EmpleadoDelMes extends Empleado{
     private Boolean empleadoEnServicio;
     
     public EmpleadoDelMes(String nombre, String apellido, int cantidadDeHorasTrabajadas, String areaDestacada, String permanencia, Boolean empleadoEnServicio){
-        super(nombre, apellido);
+        super(nombre, apellido, cantidadDeHorasTrabajadas, empleadoEnServicio, nombre);
         this.areaDestacada = areaDestacada;
         this.permanencia = permanencia;
     }
